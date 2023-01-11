@@ -5,24 +5,31 @@
 
 <div class = "text-center">
     
-    <h1 class="display-4">Listagem de contatos</h1>
-
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <a class="btn btn-outline-info" role="button" asp-controller="Contato" asp-action="Criar"> Adicionar novo contato</a>
     </div>
     <br />
 
-    <div class="alert alert-info" role="alert">
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-info" role="alert">
         <button type="button" class="btn btn-light btn-sm close-alert" arial-label="Close">x</button>
-        This is a info alert—check it out!
+        @TempData["MensagemSucesso"]
     </div>
+    }
 
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-light btn-sm close-alert" arial-label="Close">x</button>
-        This is a danger alert—check it out!
+    @if(TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-light btn-sm close-alert" arial-label="Close">x</button>       
+        @TempData["MensagemErro"]
     </div>
+    }
+    <br/>
 
-    <table class="table">
+    <h1 class="display-4">Listagem de contatos</h1>
+
+    <table class="table" id="table-contatos">
         <thead>
             <tr>
                 <th scope="col">#</th>
