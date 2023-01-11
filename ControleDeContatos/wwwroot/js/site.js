@@ -4,7 +4,15 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    $('#table-contatos').DataTable({
+    getDataTable("#table-contatos");
+});
+
+$(document).ready(function () {
+    getDataTable("#table-usuarios");
+});
+
+function getDataTable(id) {
+    $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
@@ -32,7 +40,7 @@ $(document).ready(function () {
             }
         }
     });
-});
+}
 
 $('.close-alert').click(function () {
     $('.alert').hide('hide');
